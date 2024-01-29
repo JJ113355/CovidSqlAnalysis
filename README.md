@@ -1,187 +1,26 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/ec559a9f6bfd399b82bb44393651661b08aaf7ba/icons/folder-markdown-open.svg" width="100" />
-</p>
-<p align="center">
-    <h1 align="center">COVIDSQLANALYSIS</h1>
-</p>
-<p align="center">
-    <em><code>► INSERT-TEXT-HERE</code></em>
-</p>
-<p align="center">
-	<img src="https://img.shields.io/github/license/JJ113355/CovidSqlAnalysis.git?style=default&color=0080ff" alt="license">
-	<img src="https://img.shields.io/github/last-commit/JJ113355/CovidSqlAnalysis.git?style=default&color=0080ff" alt="last-commit">
-	<img src="https://img.shields.io/github/languages/top/JJ113355/CovidSqlAnalysis.git?style=default&color=0080ff" alt="repo-top-language">
-	<img src="https://img.shields.io/github/languages/count/JJ113355/CovidSqlAnalysis.git?style=default&color=0080ff" alt="repo-language-count">
-<p>
-<p align="center">
-	<!-- default option, no dependency badges. -->
-</p>
-<hr>
+# Covid 19 Exploratory Data Analysis  
 
-##  Quick Links
 
-> - [ Overview](#-overview)
-> - [ Features](#-features)
-> - [ Repository Structure](#-repository-structure)
-> - [ Modules](#-modules)
-> - [ Getting Started](#-getting-started)
->   - [ Installation](#-installation)
->   - [ Running CovidSqlAnalysis](#-running-CovidSqlAnalysis)
->   - [ Tests](#-tests)
-> - [ Project Roadmap](#-project-roadmap)
-> - [ Contributing](#-contributing)
-> - [ License](#-license)
-> - [ Acknowledgments](#-acknowledgments)
+## The Summary of this Project
+In this project, I obtained a dataset about covid 19 from (https://ourworldindata.org/covid-deaths). This dataset had values about location, people infected, people
 
----
+## Contents
+### Scraping Job Postings from Glassdoor
+The first thing to do for this project is to collect data. Instead of using the existing data from other sources, I collected the data by scraping. Since the *Glassdoor* website is dynamic, I use the **Selenium** library in Python to scrape the job postings. The code created for scraping is in [glassdoor_scraping_selenium.ipynb](https://github.com/yjeong5126/glassdoor_data_analyst/blob/master/glassdoor_scraping_selenium.ipynb). The key word for job searching was '*Data Analyst*', and I collected about 90 or less job postings for each state. The elements scraped from the site were **company name, job title, location, salary, rating, size, industry, sector, revenue, and job description**.
 
-##  Overview
+### Cleaning the Data
+The scraped data from the previous step is in the **glassdoor_data_analyst.csv** file. The next step is to clean the data. *Jupyter Notebook* in the *Python* is used again for this cleaning process. The code for cleaning the data is in [glassdoor_data_cleaning.ipynb](https://github.com/yjeong5126/glassdoor_data_analyst/blob/master/glassdoor_data_cleaning.ipynb). 
 
-<code>► INSERT-TEXT-HERE</code>
+In this step, not only cleaning the data but also converting the data to the relational database format are done. Converting the data in a spreadsheet to the relational database requires the skill for designing a database using the *Entity Relationship Diagram (ERD)*. The *ERD* I created for this practice is [Entity_Relational_Diagram.PNG](https://github.com/yjeong5126/glassdoor_data_analyst/blob/master/Entity_Relational_Diagram.PNG). Based on the *ERD* I created, I created tables for each entity and stored the tables in the *csv* files. The *csv* files are in the [table_csv_files](https://github.com/yjeong5126/glassdoor_data_analyst/tree/master/table_csv_files) folder. 
 
----
+### Storing the Data in SQL
+The relational database management system (RDMS) used here is *MySQL*. The SQL statements for creating tables are in [creating_tables.sql](https://github.com/yjeong5126/glassdoor_data_analyst/blob/master/creating_tables.sql). After creating a database and the tables, I inserted the data for each table by using the SQL statements in [inserting_records.sql](https://github.com/yjeong5126/glassdoor_data_analyst/blob/master/inserting_records.sql). Then, the original job posting data is stored following the relational database format. 
 
-##  Features
+In [sql_queries.sql](https://github.com/yjeong5126/glassdoor_data_analyst/blob/master/sql_queries.sql), I practiced some sql querries related to this data.
 
-<code>► INSERT-TEXT-HERE</code>
+### Data Visualization using Tableau
+The final step of this project is to visualize the data. What I tried to do in this analysis is to show the distributions of average salaries by state, city, sectors, and skills using an interactive visualization tool. The visualization tool used in this practice is *Tableau*. The data used for this visualization is **glassdoor_all.csv**, and [jobposting_for_tableau.sql](https://github.com/yjeong5126/glassdoor_data_analyst/blob/master/jobposting_for_tableau.sql) shows how to retrieve this data from the database created in the previous step. 
 
----
+The created tableau dashboard for this project is [Here](https://public.tableau.com/profile/yohan.jeong#!/vizhome/Glassdoor_DataAnalyst/Dashboard). 
 
-##  Repository Structure
 
-```sh
-└── CovidSqlAnalysis/
-    ├── Data
-    │   └── Data.txt
-    ├── Query
-    │   └── Covid_SQL_Query.sql
-    └── Reports
-        └── CovidReport.pbit
-```
-
----
-
-##  Modules
-
-<details closed><summary>Data</summary>
-
-| File                                                                                   | Summary                         |
-| ---                                                                                    | ---                             |
-| [Data.txt](https://github.com/JJ113355/CovidSqlAnalysis.git/blob/master/Data\Data.txt) | <code>► INSERT-TEXT-HERE</code> |
-
-</details>
-
-<details closed><summary>Query</summary>
-
-| File                                                                                                          | Summary                         |
-| ---                                                                                                           | ---                             |
-| [Covid_SQL_Query.sql](https://github.com/JJ113355/CovidSqlAnalysis.git/blob/master/Query\Covid_SQL_Query.sql) | <code>► INSERT-TEXT-HERE</code> |
-
-</details>
-
----
-
-##  Getting Started
-
-***Requirements***
-
-Ensure you have the following dependencies installed on your system:
-
-* **SQL**: `version x.y.z`
-
-###  Installation
-
-1. Clone the CovidSqlAnalysis repository:
-
-```sh
-git clone https://github.com/JJ113355/CovidSqlAnalysis.git
-```
-
-2. Change to the project directory:
-
-```sh
-cd CovidSqlAnalysis
-```
-
-3. Install the dependencies:
-
-```sh
-> INSERT-INSTALL-COMMANDS
-```
-
-###  Running CovidSqlAnalysis
-
-Use the following command to run CovidSqlAnalysis:
-
-```sh
-> INSERT-RUN-COMMANDS
-```
-
-###  Tests
-
-To execute tests, run:
-
-```sh
-> INSERT-TEST-COMMANDS
-```
-
----
-
-##  Project Roadmap
-
-- [X] `► INSERT-TASK-1`
-- [ ] `► INSERT-TASK-2`
-- [ ] `► ...`
-
----
-
-##  Contributing
-
-Contributions are welcome! Here are several ways you can contribute:
-
-- **[Submit Pull Requests](https://github/JJ113355/CovidSqlAnalysis.git/blob/main/CONTRIBUTING.md)**: Review open PRs, and submit your own PRs.
-- **[Join the Discussions](https://github/JJ113355/CovidSqlAnalysis.git/discussions)**: Share your insights, provide feedback, or ask questions.
-- **[Report Issues](https://github/JJ113355/CovidSqlAnalysis.git/issues)**: Submit bugs found or log feature requests for Covidsqlanalysis.
-
-<details closed>
-    <summary>Contributing Guidelines</summary>
-
-1. **Fork the Repository**: Start by forking the project repository to your GitHub account.
-2. **Clone Locally**: Clone the forked repository to your local machine using a Git client.
-   ```sh
-   git clone https://github.com/JJ113355/CovidSqlAnalysis.git
-   ```
-3. **Create a New Branch**: Always work on a new branch, giving it a descriptive name.
-   ```sh
-   git checkout -b new-feature-x
-   ```
-4. **Make Your Changes**: Develop and test your changes locally.
-5. **Commit Your Changes**: Commit with a clear message describing your updates.
-   ```sh
-   git commit -m 'Implemented new feature x.'
-   ```
-6. **Push to GitHub**: Push the changes to your forked repository.
-   ```sh
-   git push origin new-feature-x
-   ```
-7. **Submit a Pull Request**: Create a PR against the original project repository. Clearly describe the changes and their motivations.
-
-Once your PR is reviewed and approved, it will be merged into the main branch.
-
-</details>
-
----
-
-##  License
-
-This project is protected under the [SELECT-A-LICENSE](https://choosealicense.com/licenses) License. For more details, refer to the [LICENSE](https://choosealicense.com/licenses/) file.
-
----
-
-##  Acknowledgments
-
-- List any resources, contributors, inspiration, etc. here.
-
-[**Return**](#-quick-links)
-
----
