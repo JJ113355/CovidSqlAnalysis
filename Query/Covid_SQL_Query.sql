@@ -172,48 +172,6 @@ JOIN CovidVaccinations as vac ON dea.location = vac.location and dea.DateConvert
 WHERE dea.continent is not null
 ORDER BY dea.DateConverted,dea.population
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 -- GLOBAL NUMBERS
 
 Select SUM(new_cases) as total_cases, SUM(cast(new_deaths as int)) as total_deaths, SUM(cast(new_deaths as int))/SUM(New_Cases)*100 as DeathPercentage
@@ -284,8 +242,6 @@ Select *, (RollingPeopleVaccinated/Population)*100
 From #PercentPopulationVaccinated
 
 
-
-
 -- Creating View to store data for later visualizations
 
 Create View PercentPopulationVaccinated as
@@ -297,31 +253,3 @@ Join PortfolioProject..CovidVaccinations vac
 	On dea.location = vac.location
 	and dea.date = vac.date
 where dea.continent is not null 
-
-
-
-
--- queries Used For Creating Visualizations In Power BI --------------------------------------------------
-
--- 1 
---Continents With The Highest Death Count Per Population
-SELECT Location, SUM(cast(new_deaths as int)) as TotalDeathCount
-FROM CovidDeaths
-WHERE continent is null 
-and location not in ('World', 'European Union', 'International', 'High income', 'Upper middle income', 'Lower middle income', 'Low income')
-GROUP BY Location
-ORDER BY TotalDeathCount desc;
-
--- 2 Global Numbers
--- Showing the Total Cases, Total Deaths, and The Overall DeathPercentage
-Select SUM(new_cases) as total_cases, SUM(cast(new_deaths as int)) as total_deaths, SUM(cast(new_deaths as int))/SUM(New_Cases)*100 as DeathPercentage
-FROM CovidDeaths
-WHERE continent is not null 
-ORDER BY total_cases,total_deaths;
-
--- 3
-
-
-
---4
-
