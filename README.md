@@ -11,21 +11,18 @@ This project focuses on exploring and analyzing COVID-19 data to gain insights i
 2. Navigate to the download section.
 3. Download the dataset in Excel format.
 
-Ater obtaining the excel file I decided to break them into two seperate tables one for deaths and one for vaccinations.
+Ater obtaining the excel file I decided to break the dataset into two seperate tables one for deaths and one for vaccinations.
 
 ### Storing the Data in SQL
 The relational database management system (RDMS) I choose was *Microsoft SQL Server*.I used the import wizard to direcly import the two excel files into a database called *CovidSql*. 
 
 ### Cleaning the Data
-Since the dataset was an officall dataset it was already pretty clean to begin with. In SQL I made sure of this by checking for duplicated The code for cleaning the data is in [Covid_SQL_Query.sql](https://github.com/JJ113355/CovidSqlAnalysis/blob/main/Query/Covid_SQL_Query.sql). 
+Since the dataset was an officall dataset it was already pretty clean to begin with. In Microsoft SQL Server I performed taskes such as **removing duplicates**, changing **date formats** .The code for cleaning the data is in [Covid_SQL_Query.sql](https://github.com/JJ113355/CovidSqlAnalysis/blob/main/Query/Covid_SQL_Query.sql). 
 
 
 ### Analyzing the Data
 
 
 ### Data Visualization using Power BI
-The final step of this project is to visualize the data. What I tried to do in this analysis is to show the distributions of average salaries by state, city, sectors, and skills using an interactive visualization tool. The visualization tool used in this practice is *Tableau*. The data used for this visualization is **glassdoor_all.csv**, and [jobposting_for_tableau.sql](https://github.com/yjeong5126/glassdoor_data_analyst/blob/master/jobposting_for_tableau.sql) shows how to retrieve this data from the database created in the previous step. 
-
-The created tableau dashboard for this project is [Here](https://public.tableau.com/profile/yohan.jeong#!/vizhome/Glassdoor_DataAnalyst/Dashboard). 
-
+The final step of this project is to visualize the data. 
 
