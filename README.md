@@ -2,23 +2,28 @@
 
 
 ## The Summary of this Project
-In this project, I obtained a dataset about covid 19 from (https://ourworldindata.org/covid-deaths). This dataset had values about location, people infected, people
+This project focuses on exploring and analyzing COVID-19 data to gain insights into the global impact of the pandemic. This analysis on specific topics such as total death count per continent, total vaccinations per continent, and countrys with the overall highest infection count. Tools used in this project include **Excel**, **Microsoft SQL Server**, and **Power BI**. The dataset I used in this project was obtained from [Our World in Data](https://ourworldindata.org/covid-deaths). The dataset provides information on COVID-19 deaths, vaccinations, infection rate,  and it was crucial for the analysis performed in this project.
+
 
 ## Contents
-### Scraping Job Postings from Glassdoor
-The first thing to do for this project is to collect data. Instead of using the existing data from other sources, I collected the data by scraping. Since the *Glassdoor* website is dynamic, I use the **Selenium** library in Python to scrape the job postings. The code created for scraping is in [glassdoor_scraping_selenium.ipynb](https://github.com/yjeong5126/glassdoor_data_analyst/blob/master/glassdoor_scraping_selenium.ipynb). The key word for job searching was '*Data Analyst*', and I collected about 90 or less job postings for each state. The elements scraped from the site were **company name, job title, location, salary, rating, size, industry, sector, revenue, and job description**.
+### Obtaining the Data
+1. Visit the url [Our World in Data COVID-19 Deaths](https://ourworldindata.org/covid-deaths).
+2. Navigate to the download section.
+3. Download the dataset in Excel format.
 
-### Cleaning the Data
-The scraped data from the previous step is in the **glassdoor_data_analyst.csv** file. The next step is to clean the data. *Jupyter Notebook* in the *Python* is used again for this cleaning process. The code for cleaning the data is in [Covid_SQL_Query.sql](https://github.com/JJ113355/CovidSqlAnalysis/blob/main/Query/Covid_SQL_Query.sql). 
-
-In this step, not only cleaning the data but also converting the data to the relational database format are done. Converting the data in a spreadsheet to the relational database requires the skill for designing a database using the *Entity Relationship Diagram (ERD)*. The *ERD* I created for this practice is [Entity_Relational_Diagram.PNG](https://github.com/yjeong5126/glassdoor_data_analyst/blob/master/Entity_Relational_Diagram.PNG). Based on the *ERD* I created, I created tables for each entity and stored the tables in the *csv* files. The *csv* files are in the [table_csv_files](https://github.com/yjeong5126/glassdoor_data_analyst/tree/master/table_csv_files) folder. 
+Ater obtaining the excel file I decided to break them into two seperate tables one for deaths and one for vaccinations.
 
 ### Storing the Data in SQL
-The relational database management system (RDMS) used here is *MySQL*. The SQL statements for creating tables are in [creating_tables.sql](https://github.com/yjeong5126/glassdoor_data_analyst/blob/master/creating_tables.sql). After creating a database and the tables, I inserted the data for each table by using the SQL statements in [inserting_records.sql](https://github.com/yjeong5126/glassdoor_data_analyst/blob/master/inserting_records.sql). Then, the original job posting data is stored following the relational database format. 
+The relational database management system (RDMS) I choose was *Microsoft SQL Server*.I used the import wizard to direcly import the two excel files into a database called *CovidSql*. 
 
-In [sql_queries.sql](https://github.com/yjeong5126/glassdoor_data_analyst/blob/master/sql_queries.sql), I practiced some sql querries related to this data.
+### Cleaning the Data
+Since the dataset was an officall dataset it was already pretty clean to begin with. In SQL I made sure of this by checking for duplicated The code for cleaning the data is in [Covid_SQL_Query.sql](https://github.com/JJ113355/CovidSqlAnalysis/blob/main/Query/Covid_SQL_Query.sql). 
 
-### Data Visualization using Tableau
+
+### Analyzing the Data
+
+
+### Data Visualization using Power BI
 The final step of this project is to visualize the data. What I tried to do in this analysis is to show the distributions of average salaries by state, city, sectors, and skills using an interactive visualization tool. The visualization tool used in this practice is *Tableau*. The data used for this visualization is **glassdoor_all.csv**, and [jobposting_for_tableau.sql](https://github.com/yjeong5126/glassdoor_data_analyst/blob/master/jobposting_for_tableau.sql) shows how to retrieve this data from the database created in the previous step. 
 
 The created tableau dashboard for this project is [Here](https://public.tableau.com/profile/yohan.jeong#!/vizhome/Glassdoor_DataAnalyst/Dashboard). 
