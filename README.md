@@ -24,5 +24,5 @@ Since the dataset was an officall dataset it was already pretty clean to begin w
 
 
 ### Data Visualization using Power BI
-The final step of this project is to visualize the data. 
+The final step of this project is to visualize the data. The software I used was Power BI where I created the report [CovidReport.pdf](https://github.com/JJ113355/CovidSqlAnalysis/blob/main/Reports/CovidReport.pdf).
 
