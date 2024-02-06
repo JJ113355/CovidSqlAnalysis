@@ -21,7 +21,7 @@ Since the dataset was an officall dataset it was already pretty clean to begin w
 
 
 ### Analyzing the Data
-
+For analyzing the data I used SQL. In SQL I 
 
 ### Data Visualization using Power BI
 The final step of this project is to visualize the data. The software I used was Power BI where I created the report [CovidReport.pdf](https://github.com/JJ113355/CovidSqlAnalysis/blob/main/Reports/CovidReport.pdf). In this report I created four seperate visualizations. The first visualization was a matrix that demonstrated information about global numbers. The next was a vertical bar graph that was grouped by contient and total death count related to covid 19. Next, was a horizonal bar graph picturing the difference between continent and total vaccinations. Lastly, I created a treemap that showed which countries had the highest percent of population infected.
